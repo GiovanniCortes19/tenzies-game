@@ -40,6 +40,10 @@ main {
   cursor: pointer;
 }
 
+.die:hover{
+  background-color: rgb(224, 224, 224);
+}
+
 .die-num {
   font-size: 2rem;
 }
