@@ -1,6 +1,6 @@
 import Die from "./Die"
 import { useState } from "react"
-
+import {nanoid} from '../node_modules/nanoid'
 
 function App() {
 
