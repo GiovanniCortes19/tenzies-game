@@ -1,9 +1,22 @@
+import Die from "./Die"
+
 
 function App() {
 
   return (
     <main className="main">
-      <h1>Tenzies Game!</h1>
+      <div className="dice-container">
+        <Die value={3}/>
+        <Die value={3}/>
+        <Die value={3}/>
+        <Die value={3}/>
+        <Die value={3}/>
+        <Die value={3}/>
+        <Die value={3}/>
+        <Die value={3}/>
+        <Die value={3}/>
+        <Die value={3}/>
+      </div>
     </main>
   )
 }

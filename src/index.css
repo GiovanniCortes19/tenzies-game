@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: Tahoma, sans-serif;
 }
 
 body {
@@ -14,4 +15,31 @@ main {
   height: 80vh;
   max-width: 800px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.dice-container {
+  display: grid;
+  grid-template: auto auto / repeat(5, 1fr);
+  gap: 20px;
+}
+
+.die {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.die-num {
+  font-size: 2rem;
 }
