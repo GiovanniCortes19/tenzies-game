@@ -1,14 +1,10 @@
 
-
 function App() {
 
   return (
-    <div className="App">
+    <main className="main">
       <h1>Tenzies Game!</h1>
-      <p className="read-the-docs">
-        This will be a tenzies game project
-      </p>
-    </div>
+    </main>
   )
 }
 
