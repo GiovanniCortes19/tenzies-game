@@ -1,10 +1,18 @@
 import Die from "./Die"
 import { useState } from "react"
+import { useEffect } from "react"
 import {nanoid} from '../node_modules/nanoid'
 
 function App() {
 
   const [diceNumbers, setDiceNumbers] = useState(allNewDice())
+  const [tenzies, setTenzies] = useState(false)
+
+  useEffect(()=>{
+      if (diceNumbers.every(die => die.isHeld) && diceNumbers.every(die => die.value)){
+        setTenzies(true)
+      }
+  }, [diceNumbers])
 
   function generateNewDie(){
     return {value: Math.ceil(Math.random()*6), 
@@ -49,7 +57,7 @@ function App() {
   return (
     <main className="main">
       <h1 className="title">Tenzies</h1>
-      <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+      {tenzies ? <h3 className="winTitle">You Won!</h3> : <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>}
       <div className="dice-container">
         {dice}
       </div>
