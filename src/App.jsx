@@ -8,6 +8,7 @@ function App() {
 
   const [diceNumbers, setDiceNumbers] = useState(allNewDice())
   const [tenzies, setTenzies] = useState(false)
+  const [rollCount, setRollCount] = useState(0)
 
   useEffect(()=>{
       const allHeld = diceNumbers.every(die => die.isHeld);
@@ -45,6 +46,7 @@ function App() {
   }
 
   function rollDice(){
+    setRollCount(oldCount => oldCount + 1)
     setDiceNumbers(oldDice => oldDice.map(die => {
       if (!die.isHeld) {
         return generateNewDie()
@@ -56,6 +58,7 @@ function App() {
 
   function resetGame(){
     setTenzies(false)
+    setRollCount(0)
     setDiceNumbers(allNewDice())
   }
 
@@ -67,7 +70,8 @@ function App() {
     <main className="main">
       {tenzies && <Confetti />}
       <h1 className="title">Tenzies</h1>
-      {tenzies ? <h3 className="winTitle">You Won!</h3> : <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>}
+      {tenzies ? <h3 className="winTitle">You Won! </h3> : <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>}
+      {tenzies && <h4 className="totalRolls">Total Rolls: {rollCount}</h4>}
       <div className="dice-container">
         {dice}
       </div>
