@@ -10,7 +10,10 @@ function App() {
   const [tenzies, setTenzies] = useState(false)
 
   useEffect(()=>{
-      if (diceNumbers.every(die => die.isHeld) && diceNumbers.every(die => die.value)){
+      const allHeld = diceNumbers.every(die => die.isHeld);
+      const valueCompare = diceNumbers[0].value
+      const allSameValue = diceNumbers.every(die => die.value === valueCompare)
+      if ( allHeld && allSameValue ){
         setTenzies(true)
       }
   }, [diceNumbers])
