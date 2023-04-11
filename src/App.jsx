@@ -6,6 +6,12 @@ function App() {
 
   const [diceNumbers, setDiceNumbers] = useState(allNewDice())
 
+  function generateNewDie(){
+    return {value: Math.ceil(Math.random()*6), 
+            isHeld: false, 
+            id: nanoid()}
+  }
+
   function allNewDice(){
     const diceArray = [];
     for (let i = 0; i < 10; i++){
@@ -27,7 +33,13 @@ function App() {
   }
 
   function rollDice(){
-    setDiceNumbers(allNewDice())
+    setDiceNumbers(oldDice => oldDice.map(die => {
+      if (!die.isHeld) {
+        return generateNewDie()
+      } else {
+        return die
+      }
+    }))
   }
 
   const dice = diceNumbers.map(die => {
