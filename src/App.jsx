@@ -50,6 +50,11 @@ function App() {
     }))
   }
 
+  function resetGame(){
+    setTenzies(false)
+    setDiceNumbers(allNewDice())
+  }
+
   const dice = diceNumbers.map(die => {
     return <Die value={die.value} key={die.id} isHeld={die.isHeld} holdDice={()=>holdDice(die.id)} />
   })
@@ -61,7 +66,7 @@ function App() {
       <div className="dice-container">
         {dice}
       </div>
-      <button className="btn-rollDice" onClick={rollDice}>Roll Dice</button>
+      {tenzies ? <button className="btn-rollDice" onClick={resetGame}>Restart Game</button> : <button className="btn-rollDice" onClick={rollDice}>Roll Dice</button>}
     </main>
   )
 }
