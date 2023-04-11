@@ -68,7 +68,7 @@ function App() {
       <div className="dice-container">
         {dice}
       </div>
-      {tenzies ? <button className="btn-rollDice" onClick={resetGame}>Restart Game</button> : <button className="btn-rollDice" onClick={rollDice}>Roll Dice</button>}
+      {tenzies ? <button className="btn-rollDice" onClick={resetGame}>New Game</button> : <button className="btn-rollDice" onClick={rollDice}>Roll Dice</button>}
     </main>
   )
 }
