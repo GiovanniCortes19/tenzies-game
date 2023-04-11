@@ -16,12 +16,22 @@ function App() {
     return diceArray
   }
 
+  function holdDice(id){
+    setDiceNumbers(oldDice => oldDice.map(die => {
+      if (die.id === id) {
+        return {...die, isHeld: !die.isHeld}
+      } else {
+        return die
+      }
+    }))
+  }
+
   function rollDice(){
     setDiceNumbers(allNewDice())
   }
 
   const dice = diceNumbers.map(die => {
-    return <Die value={die.value} key={die.id} isHeld={die.isHeld}/>
+    return <Die value={die.value} key={die.id} isHeld={die.isHeld} holdDice={()=>holdDice(die.id)} />
   })
 
   return (
