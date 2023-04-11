@@ -9,7 +9,9 @@ function App() {
   function allNewDice(){
     const diceArray = [];
     for (let i = 0; i < 10; i++){
-      diceArray.push({value: Math.ceil(Math.random()*6), isHeld: false, id: nanoid()})
+      diceArray.push({value: Math.ceil(Math.random()*6), 
+                      isHeld: false, 
+                      id: nanoid()})
     }
     return diceArray
   }
@@ -19,7 +21,7 @@ function App() {
   }
 
   const dice = diceNumbers.map(die => {
-    return <Die value={die.value} key={die.id}/>
+    return <Die value={die.value} key={die.id} isHeld={die.isHeld}/>
   })
 
   return (
