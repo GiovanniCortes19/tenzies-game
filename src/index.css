@@ -213,4 +213,11 @@ main {
   left: 22px;
 }
 
+.btn-rollDice {
+  width: 150px;
+  height: 60px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 }
